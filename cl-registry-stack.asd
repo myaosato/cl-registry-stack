@@ -9,7 +9,7 @@
   :depends-on ()
   :components ((:module "src"
                 :components
-                ((:file "cl-dev-env"))))
+                ((:file "cl-registry-stack"))))
   :description "push paths to asdf:*central-registry*"
   :long-description
   #.(read-file-string
