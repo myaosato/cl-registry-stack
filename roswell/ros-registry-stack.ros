@@ -1,0 +1,34 @@
+#!/bin/sh
+#|-*- mode:lisp -*-|#
+#|
+exec ros -Q -- $0 "$@"
+|#
+(progn ;;init forms
+  (ros:ensure-asdf)
+  ;;#+quicklisp (ql:quickload '() :silent t)
+  )
+(asdf:load-system :cl-registry-stack)
+(defpackage :ros.script.ros-registry-stack.3724202826
+  (:use :cl))
+(in-package :ros.script.ros-registry-stack.3724202826)
+
+(defvar +usage+ "
+usage: ros registry-stack COMMAND
+COMMANDS
+    add
+    remove
+    show
+")
+
+(defun prepare ()
+  (cl-registry-stack::make-env)
+  (cl-registry-stack::load-env))
+
+(defun main (&rest argv)
+  (let ((command (first argv)))
+    (case (intern (string-upcase command) :keyword)
+      (:add (prepare) (cl-registry-stack:add-path (truename ".")))
+      (:remove (prepare) (cl-registry-stack:remove-path (truename ".")))
+      (:show (prepare) (cl-registry-stack:show-paths))
+      (t (format t "unkown command: '~a'~%~a~%" command +usage+)))))
+;;; vim: set ft=lisp lisp:
