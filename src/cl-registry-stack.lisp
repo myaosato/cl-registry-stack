@@ -31,7 +31,7 @@
     (setf *dev-registry* (read in))))
 
 (defun add-path (path)
-  (push path *dev-registry*)
+  (pushnew path *dev-registry*)
   (save-env)
   (show-paths))
 
