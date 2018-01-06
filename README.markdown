@@ -77,7 +77,7 @@ add path of current directory  to ~/.cl-registry-stack file
 $ ros registry-stack remove
 ```
 
-remove path of current directory  to ~/.cl-registry-stack file
+remove path of current directory  from ~/.cl-registry-stack file
 
 ```
 $ ros registry-stack add
