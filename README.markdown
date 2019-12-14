@@ -1,6 +1,6 @@
 # Cl-Registry-Stack
 
-WIP
+**DEPRECATED !!**
 
 ## Usage
 
